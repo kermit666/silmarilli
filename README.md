@@ -9,3 +9,13 @@ Silmarilli
 
 This is a collection of the most brilliant gems out there,
 forged into a powerful building tool.
+
+The gems
+--------
+
+The API server is built using Django.
+
+The following gems are included in Silmarilli:
+
+- [cookiecutter-django](https://github.com/pydanny/cookiecutter-django)
+  (@pydanny)
