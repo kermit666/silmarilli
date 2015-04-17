@@ -70,7 +70,7 @@ module.exports = generators.Base.extend({
       // - first without the project_name module
       this.fs.copyTpl(
         // skip Gruntfile.js, since it uses <% templates, causing clashes
-        this.templatePath('project_name/**!(project_name)/!(Gruntfile.js)'),
+        this.templatePath('project_name/!(project_name|Gruntfile.js)'),
         this.destinationPath(this.project_name + '/'),
         this,
         {interpolate: /{{([\s\S]+?)}}/g} // using the {{ }} template delimiters
