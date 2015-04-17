@@ -66,20 +66,27 @@ module.exports = generators.Base.extend({
         this.destinationPath('.jshintrc')
       );
 
-      // copy the Django project, rendering {{ }} templates
+      // copy the Django project
+      // - first without the project_name module
       this.fs.copyTpl(
-        // skip Gruntfile.js & templates/ that cause clashes (<%= %>)
-        this.templatePath('project_name/**!(templates)/!(Gruntfile.js)'),
+        // skip Gruntfile.js, since it uses <% templates, causing clashes
+        this.templatePath('project_name/**!(project_name)/!(Gruntfile.js)'),
         this.destinationPath(this.project_name + '/'),
         this,
         {interpolate: /{{([\s\S]+?)}}/g} // using the {{ }} template delimiters
       );
-
-      // exceptionally, just copy the actual Django templates
+      // - now copy and rename the project_name module
+      this.fs.copyTpl(
+        this.templatePath('project_name/project_name/**!(templates)'),
+        this.destinationPath(this.project_name + '/' + this.project_name),
+        this,
+        {interpolate: /{{([\s\S]+?)}}/g} // using the {{ }} template delimiters
+      );
+      // - now just copy the actual Django templates (without rendering)
       this.fs.copy(
-        // skip Gruntfile.js, since it uses <% templates, causing clashes
         this.templatePath('project_name/project_name/templates'),
-        this.destinationPath(this.project_name + '/' + 'project_name' + '/templates')
+        this.destinationPath(this.project_name + '/' +
+                             this.project_name + '/templates')
       );
 
     }
