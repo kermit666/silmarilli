@@ -1,6 +1,6 @@
 {
   "name": "generator-silmarilli",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "Most brilliant gems forged into a powerful building tool.",
   "license": "GPLv3",
   "main": "app/index.js",
