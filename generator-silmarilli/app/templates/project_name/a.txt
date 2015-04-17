@@ -1,5 +1,0 @@
-<html>
-  <head>
-    <title>{{ project_name }}</title>
-  </head>
-</html>
