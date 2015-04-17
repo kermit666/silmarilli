@@ -1,6 +1,15 @@
 # License
 
-The licences of all the included code are listed below.
+The original code added in this repository is licensed as GPLv3. The licences of
+included code components are listed below.
+
+## Yeoman
+
+BSD license Copyright (c) Google
+
+## generator-generator
+
+MIT (c) Pascal Hartig phartig@rdrei.net and other contributors
 
 ## cookiecutter-django
 
