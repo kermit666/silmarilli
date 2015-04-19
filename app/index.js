@@ -66,6 +66,11 @@ module.exports = generators.Base.extend({
         this.destinationPath('.jshintrc')
       );
 
+      // create the Angular app
+      this.composeWith('angular:app', {}, {
+        local: require.resolve('generator-angular')
+      });
+
       // copy the Django project
       // - first without the project_name module
       this.fs.copyTpl(

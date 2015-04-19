@@ -85,3 +85,9 @@ convinced.
 If you'd like to get to know Yeoman better and meet some of his friends,
 [Grunt](http://gruntjs.com) and [Bower](http://bower.io), check out the complete
 [Getting Started Guide](https://github.com/yeoman/yeoman/wiki/Getting-Started).
+
+TODO
+----
+
+- properly prompt the subgenerator
+  http://stackoverflow.com/questions/28520937/

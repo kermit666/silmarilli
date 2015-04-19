@@ -23,8 +23,11 @@
     "yeoman-generator"
   ],
   "dependencies": {
-    "yeoman-generator": "^0.18.9",
     "chalk": "^1.0.0",
+    "generator-angular": "^0.11.1",
+    "generator-karma": "^0.9.0",
+    "yeoman-generator": "^0.18.9",
+    "yo": "^1.4.6",
     "yosay": "^1.0.2"
   },
   "devDependencies": {
