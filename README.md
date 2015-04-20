@@ -1,4 +1,4 @@
-Silmarilli
+Silmarilli [![Build Status](https://secure.travis-ci.org/kermit666/silmarilli.png?branch=master)](https://travis-ci.org/kermit666/silmarilli)
 ==========
 
 > The Noldor also it was who first achieved the making of gems;
@@ -10,19 +10,21 @@ Silmarilli
 This is a collection of the most brilliant gems out there,
 forged into a powerful building tool.
 
+
 The gems
 --------
 
-The API server is built using Django.
+Silmarilli is packaged as a [Yeoman](http://yeoman.io) generator. It scaffolds
+your application consisting of a [Django](https://www.djangoproject.com/)
+REST API server connected to a PostgreSQL database and a
+[AngularJS](https://angularjs.org/) web app.
 
 The following gems are included in Silmarilli:
 
 - [cookiecutter-django](https://github.com/pydanny/cookiecutter-django)
-  (@pydanny)
+  ([@pydanny](https://github.com/pydanny))
+- [generator-angular](https://github.com/yeoman/generator-angular)
 
-# generator-silmarilli [![Build Status](https://secure.travis-ci.org/kermit666/silmarilli.png?branch=master)](https://travis-ci.org/kermit666/silmarilli)
-
-> [Yeoman](http://yeoman.io) generator
 
 License
 -------
