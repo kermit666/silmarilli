@@ -9,6 +9,9 @@ module.exports = generators.Base.extend({
     generators.Base.apply(this, arguments);
 
     this.argument('project_name', { type: String, required: false });
+
+    this.option('angular', {desc: 'generate the AngularJS app',
+                            type: 'Boolean', defaults: true});
   },
 
   initializing: function () {
@@ -38,17 +41,20 @@ module.exports = generators.Base.extend({
       if (props.project_name){
         this.project_name = props.project_name;
       }
+      //done();
+    }.bind(this));
 
-      // create the Angular app
+    // create the Angular app
+    if (this.options['angular']){
       this.composeWith('angular:app', {
         skipInstall: this.options['skip-install'],
         skipMessage: false
       }, {
         local: require.resolve('generator-angular')
       }).on('end', function(){ done(); });
-
-      //done();
-    }.bind(this));
+    } else {
+      done();
+    }
   },
 
   writing: {
