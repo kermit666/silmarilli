@@ -26,12 +26,6 @@ The following gems are included in Silmarilli:
 - [generator-angular](https://github.com/yeoman/generator-angular)
 
 
-License
--------
-
-Original code GPLv3, for the included components see LICENSE.md.
-
-
 Getting Started
 ---------------
 
@@ -88,8 +82,16 @@ If you'd like to get to know Yeoman better and meet some of his friends,
 [Grunt](http://gruntjs.com) and [Bower](http://bower.io), check out the complete
 [Getting Started Guide](https://github.com/yeoman/yeoman/wiki/Getting-Started).
 
+
+License
+-------
+
+Original code GPLv3, for the included components see LICENSE.md.
+
+
 TODO
 ----
 
 - properly prompt the subgenerator
   http://stackoverflow.com/questions/28520937/
+- add local cookiecutterrc support to *cookiecutter/cookiecutter/config.py*

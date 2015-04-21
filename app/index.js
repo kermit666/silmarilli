@@ -39,7 +39,15 @@ module.exports = generators.Base.extend({
         this.project_name = props.project_name;
       }
 
-      done();
+      // create the Angular app
+      this.composeWith('angular:app', {
+        skipInstall: this.options['skip-install'],
+        skipMessage: false
+      }, {
+        local: require.resolve('generator-angular')
+      }).on('end', function(){ done(); });
+
+      //done();
     }.bind(this));
   },
 
@@ -65,11 +73,6 @@ module.exports = generators.Base.extend({
         this.templatePath('jshintrc'),
         this.destinationPath('.jshintrc')
       );
-
-      // create the Angular app
-      this.composeWith('angular:app', {}, {
-        local: require.resolve('generator-angular')
-      });
 
       // copy the Django project
       // - first without the project_name module

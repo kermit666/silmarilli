@@ -11,7 +11,7 @@ describe('silmarilli:app', function () {
       .inDir(path.join(os.tmpdir(), './temp-test'))
       .withOptions({ 'skip-install': true })
       .withPrompt({
-        someOption: true
+        project_name: "myproject"
       })
       .on('end', done);
   });
@@ -21,7 +21,9 @@ describe('silmarilli:app', function () {
       'bower.json',
       'package.json',
       '.editorconfig',
-      '.jshintrc'
+      '.jshintrc',
+      'myproject', // the Django project
+//      'app' // the AngularJS app
     ]);
   });
 });
