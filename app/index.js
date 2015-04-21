@@ -58,29 +58,9 @@ module.exports = generators.Base.extend({
   },
 
   writing: {
-    app: function () {
-      this.fs.copy(
-        this.templatePath('_package.json'),
-        this.destinationPath('package.json')
-      );
-      this.fs.copy(
-        this.templatePath('_bower.json'),
-        this.destinationPath('bower.json')
-      );
-    },
-
-    projectfiles: function () {
-      this.log('Generating project ' + this.project_name);
-      this.fs.copy(
-        this.templatePath('editorconfig'),
-        this.destinationPath('.editorconfig')
-      );
-      this.fs.copy(
-        this.templatePath('jshintrc'),
-        this.destinationPath('.jshintrc')
-      );
-
+    djangoproject: function () {
       // copy the Django project
+      this.log('Generating project ' + this.project_name);
       // - first without the project_name module
       this.fs.copyTpl(
         // skip Gruntfile.js, since it uses <% templates, causing clashes
