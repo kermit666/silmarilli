@@ -89,6 +89,16 @@ License
 Original code GPLv3, for the included components see LICENSE.md.
 
 
+Hacking
+-------
+
+For when it should be updated, Cookiecutter-django is included from
+[kermit's fork](https://github.com/kermit666/cookiecutter-django) as:
+
+    cd app/templates
+    cookiecutter --no-input -c kermit gh:kermit666/cookiecutter-django
+
+
 TODO
 ----
 
