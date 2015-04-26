@@ -72,6 +72,8 @@ it otherwise).
 yo silmarilli awesome_thingy
 ```
 
+If you want to skip generating the Angular code, pass the `--skip-angular` flag.
+
 ### Getting To Know Yeoman
 
 Yeoman has a heart of gold. He's a person with feelings and opinions, but he's

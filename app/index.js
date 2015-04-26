@@ -10,8 +10,8 @@ module.exports = generators.Base.extend({
 
     this.argument('project_name', { type: String, required: false });
 
-    this.option('angular', {desc: 'generate the AngularJS app',
-                            type: 'Boolean', defaults: true});
+    this.option('skip-angular', {desc: "don't generate the AngularJS app",
+                               type: 'Boolean', defaults: false});
   },
 
   initializing: function () {
@@ -43,7 +43,8 @@ module.exports = generators.Base.extend({
       }
 
       // create the Angular app
-      if (this.options['angular']){
+      if (!this.options['skip-angular']){
+        this.log('Setting up AngularJS.');
         this.composeWith('angular:app', {
           skipInstall: this.options['skip-install'],
           skipMessage: false
@@ -51,6 +52,7 @@ module.exports = generators.Base.extend({
           local: require.resolve('generator-angular')
         }).on('end', function(){ done(); });
       } else {
+        this.log('Skipping AngularJS as requested.');
         done();
       }
 
