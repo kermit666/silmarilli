@@ -85,6 +85,7 @@ module.exports = generators.Base.extend({
         this.destinationPath(this.project_name + '/' +
                              this.project_name + '/templates')
       );
+      // TODO: copy docs/ and requirements/
 
     }
   },
