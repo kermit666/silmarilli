@@ -25,6 +25,11 @@ The following gems are included in Silmarilli:
   ([@pydanny](https://github.com/pydanny))
 - [generator-angular](https://github.com/yeoman/generator-angular)
 
+How is this possible? Through the magic of
+[composability](yeoman.io/authoring/composability.html),
+[copying files](https://github.com/sboudrias/mem-fs-editor)
+based on [template rendering](https://lodash.com/docs#template)
+and [glob expressions](https://github.com/isaacs/node-glob).
 
 Getting Started
 ---------------

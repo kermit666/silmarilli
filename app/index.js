@@ -67,23 +67,23 @@ module.exports = generators.Base.extend({
       // - first without the project_name module
       this.fs.copyTpl(
         // skip Gruntfile.js, since it uses <% templates, causing clashes
-        this.templatePath('project_name/!(project_name|Gruntfile.js)'),
+        this.templatePath('project_name/!(project_name|Gruntfile.js){/**/*,*}'),
         this.destinationPath(this.project_name + '/'),
         this,
         {interpolate: /{{([\s\S]+?)}}/g} // using the {{ }} template delimiters
       );
       // - now copy and rename the project_name module
       this.fs.copyTpl(
-        this.templatePath('project_name/project_name/**!(templates)'),
-        this.destinationPath(this.project_name + '/' + this.project_name),
+        this.templatePath('project_name/project_name/!(templates){/**/*,*}'),
+        // TODO: report this as bug:
+        this.destinationPath(this.project_name + '/whydoineedthis/'),
         this,
         {interpolate: /{{([\s\S]+?)}}/g} // using the {{ }} template delimiters
       );
       // - now just copy the actual Django templates (without rendering)
       this.fs.copy(
         this.templatePath('project_name/project_name/templates'),
-        this.destinationPath(this.project_name + '/' +
-                             this.project_name + '/templates')
+        this.destinationPath(this.project_name + '/templates')
       );
       // TODO: copy docs/ and requirements/
 
