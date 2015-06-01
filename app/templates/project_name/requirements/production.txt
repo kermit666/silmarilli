@@ -2,8 +2,13 @@
 #	production that isn't in development.
 -r base.txt
 
+# WSGI Handler
+# ------------------------------------------------
+gevent==1.0.2
 gunicorn==19.3.0
-django-storages-redux==1.2.3
-Collectfast==0.2.3
-gevent==1.0.1
+
+# Static and Media Storage
+# ------------------------------------------------
 boto==2.38.0
+django-storages-redux==1.2.3
+
