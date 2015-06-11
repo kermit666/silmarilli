@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-Django settings for project_name project.
+Django settings for {{cookiecutter.project_name}} project.
 
 For more information on this file, see
 https://docs.djangoproject.com/en/dev/topics/settings/
@@ -13,7 +13,7 @@ from __future__ import absolute_import, unicode_literals
 import environ
 
 ROOT_DIR = environ.Path(__file__) - 3  # (/a/b/myfile.py - 3 = /)
-APPS_DIR = ROOT_DIR.path('project_name')
+APPS_DIR = ROOT_DIR.path('{{ cookiecutter.repo_name }}')
 
 env = environ.Env()
 
@@ -43,7 +43,7 @@ THIRD_PARTY_APPS = (
 
 # Apps specific for this project go here.
 LOCAL_APPS = (
-    'project_name.users',  # custom users app
+    '{{ cookiecutter.repo_name }}.users',  # custom users app
     # Your stuff: custom apps go here
 )
 
@@ -65,7 +65,7 @@ MIDDLEWARE_CLASSES = (
 # MIGRATIONS CONFIGURATION
 # ------------------------------------------------------------------------------
 MIGRATION_MODULES = {
-    'sites': 'project_name.contrib.sites.migrations'
+    'sites': '{{ cookiecutter.repo_name }}.contrib.sites.migrations'
 }
 
 # DEBUG
@@ -88,7 +88,7 @@ EMAIL_BACKEND = env('DJANGO_EMAIL_BACKEND', default='django.core.mail.backends.s
 # ------------------------------------------------------------------------------
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#admins
 ADMINS = (
-    ("""author_name""", 'author_email'),
+    ("""{{cookiecutter.author_name}}""", '{{cookiecutter.email}}'),
 )
 
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#managers
@@ -99,7 +99,7 @@ MANAGERS = ADMINS
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#databases
 DATABASES = {
     # Raises ImproperlyConfigured exception if DATABASE_URL not in os.environ
-    'default': env.db("DATABASE_URL", default="postgres://localhost/project_name"),
+    'default': env.db("DATABASE_URL", default="postgres://localhost/{{cookiecutter.repo_name}}"),
 }
 DATABASES['default']['ATOMIC_REQUESTS'] = True
 
@@ -110,7 +110,7 @@ DATABASES['default']['ATOMIC_REQUESTS'] = True
 # http://en.wikipedia.org/wiki/List_of_tz_zones_by_name
 # although not all choices may be available on all operating systems.
 # In a Windows environment this must be set to your system time zone.
-TIME_ZONE = 'UTC'
+TIME_ZONE = '{{ cookiecutter.timezone }}'
 
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#language-code
 LANGUAGE_CODE = 'en-us'

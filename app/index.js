@@ -62,6 +62,12 @@ module.exports = generators.Base.extend({
 
   writing: {
     djangoproject: function () {
+      // expose the settings in a cookiecutter object for rendering it
+      // TODO: expose other properties as options as well
+      this.cookiecutter = {
+        project_name: this.project_name,
+
+      }
       // copy the Django project
       this.log('Generating project ' + this.project_name);
       // - first without the project_name module

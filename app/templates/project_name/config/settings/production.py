@@ -86,18 +86,27 @@ MEDIA_URL = 'https://s3.amazonaws.com/%s/' % AWS_STORAGE_BUCKET_NAME
 
 # Static Assests
 # ------------------------
+{% if cookiecutter.use_whitenoise == 'y' -%}
 STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
+{% else %}
+STATICFILES_STORAGE = DEFAULT_FILE_STORAGE
+STATIC_URL = MEDIA_URL
 
+# See: https://github.com/antonagestam/collectfast
+# For Django 1.7+, 'collectfast' should come before 'django.contrib.staticfiles'
+AWS_PRELOAD_METADATA = True
+INSTALLED_APPS = ('collectfast', ) + INSTALLED_APPS
+{%- endif %}
 
 # EMAIL
 # ------------------------------------------------------------------------------
 DEFAULT_FROM_EMAIL = env('DJANGO_DEFAULT_FROM_EMAIL',
-                         default='project_name <noreply@project_domain>')
+                         default='{{cookiecutter.project_name}} <noreply@{{cookiecutter.domain_name}}>')
 EMAIL_HOST = env("DJANGO_EMAIL_HOST", default='smtp.sendgrid.com')
 EMAIL_HOST_PASSWORD = env("SENDGRID_PASSWORD")
 EMAIL_HOST_USER = env('SENDGRID_USERNAME')
 EMAIL_PORT = env.int("EMAIL_PORT", default=587)
-EMAIL_SUBJECT_PREFIX = env("EMAIL_SUBJECT_PREFIX", default='[project_name] ')
+EMAIL_SUBJECT_PREFIX = env("EMAIL_SUBJECT_PREFIX", default='[{{cookiecutter.project_name}}] ')
 EMAIL_USE_TLS = True
 SERVER_EMAIL = EMAIL_HOST_USER
 

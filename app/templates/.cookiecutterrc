@@ -1,6 +1,6 @@
 default_context:
-    project_name: "project_name",
-    repo_name: "project_name",
+    project_name: '{{project_name}}',
+    repo_name: '{{project_name}}',
     author_name: "author_name",
     email: "author_email",
     description: "project_description",

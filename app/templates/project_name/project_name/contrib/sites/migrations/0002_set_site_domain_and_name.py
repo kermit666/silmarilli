@@ -11,8 +11,8 @@ def update_site_forward(apps, schema_editor):
     Site.objects.update_or_create(
         id=settings.SITE_ID,
         defaults={
-            "domain": "project_domain",
-            "name": "project_name"
+            "domain": "{{cookiecutter.domain_name}}",
+            "name": "{{cookiecutter.project_name}}"
         }
     )
 

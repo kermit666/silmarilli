@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 #
-# project_name documentation build configuration file, created by
+# {{ cookiecutter.project_name }} documentation build configuration file, created by
 # sphinx-quickstart.
 #
 # This file is execfile()d with the current directory set to its containing dir.
@@ -41,8 +41,8 @@ source_suffix = '.rst'
 master_doc = 'index'
 
 # General information about the project.
-project = u'project_name'
-copyright = u"2015, author_name"
+project = u'{{ cookiecutter.project_name }}'
+copyright = u"{{ cookiecutter.year }}, {{ cookiecutter.author_name }}"
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the
@@ -165,7 +165,7 @@ html_static_path = ['_static']
 # html_file_suffix = None
 
 # Output file base name for HTML help builder.
-htmlhelp_basename = 'project_namedoc'
+htmlhelp_basename = '{{ cookiecutter.repo_name }}doc'
 
 
 # -- Options for LaTeX output --------------------------------------------------
@@ -185,9 +185,9 @@ latex_elements = {
 # (source start file, target name, title, author, documentclass [howto/manual]).
 latex_documents = [
     ('index',
-     'project_name.tex',
-     u'project_name Documentation',
-     u"author_name", 'manual'),
+     '{{ cookiecutter.repo_name }}.tex',
+     u'{{ cookiecutter.project_name }} Documentation',
+     u"{{ cookiecutter.author_name }}", 'manual'),
 ]
 
 # The name of an image file (relative to this directory) to place at the top of
@@ -216,8 +216,8 @@ latex_documents = [
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
 man_pages = [
-    ('index', 'project_name', u'project_name Documentation',
-     [u"author_name"], 1)
+    ('index', '{{ cookiecutter.repo_name }}', u'{{ cookiecutter.project_name }} Documentation',
+     [u"{{ cookiecutter.author_name }}"], 1)
 ]
 
 # If true, show URL addresses after external links.
@@ -230,9 +230,9 @@ man_pages = [
 # (source start file, target name, title, author,
 #  dir menu entry, description, category)
 texinfo_documents = [
-    ('index', 'project_name', u'project_name Documentation',
-     u"author_name", 'project_name',
-     'project_description', 'Miscellaneous'),
+    ('index', '{{ cookiecutter.repo_name }}', u'{{ cookiecutter.project_name }} Documentation',
+     u"{{ cookiecutter.author_name }}", '{{ cookiecutter.project_name }}',
+     '{{ cookiecutter.description }}', 'Miscellaneous'),
 ]
 
 # Documents to append as an appendix to all manuals.

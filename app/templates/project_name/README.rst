@@ -1,7 +1,7 @@
-project_name
+{{cookiecutter.project_name}}
 ==============================
 
-project_description
+{{cookiecutter.description}}
 
 
 LICENSE: BSD
@@ -9,9 +9,9 @@ LICENSE: BSD
 Settings
 ------------
 
-project_name relies extensively on environment settings which **will not work with Apache/mod_wsgi setups**. It has been deployed successfully with both Gunicorn/Nginx and even uWSGI/Nginx.
+{{cookiecutter.project_name}} relies extensively on environment settings which **will not work with Apache/mod_wsgi setups**. It has been deployed successfully with both Gunicorn/Nginx and even uWSGI/Nginx.
 
-For configuration purposes, the following table maps the 'project_name' environment variables to their Django setting:
+For configuration purposes, the following table maps the '{{cookiecutter.project_name}}' environment variables to their Django setting:
 
 ======================================= =========================== ============================================== ======================================================================
 Environment Variable                    Django Setting              Development Default                            Production Default
@@ -35,8 +35,8 @@ DJANGO_EMAIL_HOST                       EMAIL_HOST                  localhost   
 EMAIL_PORT                              EMAIL_PORT                  1025                                           587
 SENDGRID_USERNAME                       EMAIL_HOST_USER             n/a                                            raises error
 SENDGRID_PASSWORD                       EMAIL_HOST_PASSWORD         n/a                                            raises error
-DJANGO_DEFAULT_FROM_EMAIL               DEFAULT_FROM_EMAIL          n/a                                            "project_name <noreply@project_domain>"
-EMAIL_SUBJECT_PREFIX                    EMAIL_SUBJECT_PREFIX        n/a                                            "[project_name] "
+DJANGO_DEFAULT_FROM_EMAIL               DEFAULT_FROM_EMAIL          n/a                                            "{{cookiecutter.project_name}} <noreply@{{cookiecutter.domain_name}}>"
+EMAIL_SUBJECT_PREFIX                    EMAIL_SUBJECT_PREFIX        n/a                                            "[{{cookiecutter.project_name}}] "
 ======================================= =========================== ============================================== ======================================================================
 
 * TODO: Add vendor-added settings in another table
@@ -148,20 +148,20 @@ You can then deploy by running the following commands.
 
 ..  code-block:: bash
 
-    git remote add dokku dokku@yourservername.com:project_name
+    git remote add dokku dokku@yourservername.com:{{cookiecutter.repo_name}}
     git push dokku master
-    ssh -t dokku@yourservername.com dokku memcached:create project_name-memcached
-    ssh -t dokku@yourservername.com dokku memcached:link project_name-memcached project_name
-    ssh -t dokku@yourservername.com dokku postgres:create project_name-postgres
-    ssh -t dokku@yourservername.com dokku postgres:link project_name-postgres project_name
-    ssh -t dokku@yourservername.com dokku config:set project_name DJANGO_SECRET_KEY=RANDOM_SECRET_KEY_HERE
-    ssh -t dokku@yourservername.com dokku config:set project_name DJANGO_SETTINGS_MODULE='config.settings.production'
-    ssh -t dokku@yourservername.com dokku config:set project_name DJANGO_AWS_ACCESS_KEY_ID=YOUR_AWS_ID_HERE
-    ssh -t dokku@yourservername.com dokku config:set project_name DJANGO_AWS_SECRET_ACCESS_KEY=YOUR_AWS_SECRET_ACCESS_KEY_HERE
-    ssh -t dokku@yourservername.com dokku config:set project_name DJANGO_AWS_STORAGE_BUCKET_NAME=YOUR_AWS_S3_BUCKET_NAME_HERE
-    ssh -t dokku@yourservername.com dokku config:set project_name SENDGRID_USERNAME=YOUR_SENDGRID_USERNAME
-    ssh -t dokku@yourservername.com dokku config:set project_name SENDGRID_PASSWORD=YOUR_SENDGRID_PASSWORD
-    ssh -t dokku@yourservername.com dokku run project_name python manage.py migrate
-    ssh -t dokku@yourservername.com dokku run project_name python manage.py createsuperuser
+    ssh -t dokku@yourservername.com dokku memcached:create {{cookiecutter.repo_name}}-memcached
+    ssh -t dokku@yourservername.com dokku memcached:link {{cookiecutter.repo_name}}-memcached {{cookiecutter.repo_name}}
+    ssh -t dokku@yourservername.com dokku postgres:create {{cookiecutter.repo_name}}-postgres
+    ssh -t dokku@yourservername.com dokku postgres:link {{cookiecutter.repo_name}}-postgres {{cookiecutter.repo_name}}
+    ssh -t dokku@yourservername.com dokku config:set {{cookiecutter.repo_name}} DJANGO_SECRET_KEY=RANDOM_SECRET_KEY_HERE
+    ssh -t dokku@yourservername.com dokku config:set {{cookiecutter.repo_name}} DJANGO_SETTINGS_MODULE='config.settings.production'
+    ssh -t dokku@yourservername.com dokku config:set {{cookiecutter.repo_name}} DJANGO_AWS_ACCESS_KEY_ID=YOUR_AWS_ID_HERE
+    ssh -t dokku@yourservername.com dokku config:set {{cookiecutter.repo_name}} DJANGO_AWS_SECRET_ACCESS_KEY=YOUR_AWS_SECRET_ACCESS_KEY_HERE
+    ssh -t dokku@yourservername.com dokku config:set {{cookiecutter.repo_name}} DJANGO_AWS_STORAGE_BUCKET_NAME=YOUR_AWS_S3_BUCKET_NAME_HERE
+    ssh -t dokku@yourservername.com dokku config:set {{cookiecutter.repo_name}} SENDGRID_USERNAME=YOUR_SENDGRID_USERNAME
+    ssh -t dokku@yourservername.com dokku config:set {{cookiecutter.repo_name}} SENDGRID_PASSWORD=YOUR_SENDGRID_PASSWORD
+    ssh -t dokku@yourservername.com dokku run {{cookiecutter.repo_name}} python manage.py migrate
+    ssh -t dokku@yourservername.com dokku run {{cookiecutter.repo_name}} python manage.py createsuperuser
 
 When deploying via Dokku make sure you backup your database in some fashion as it is NOT done automatically.
