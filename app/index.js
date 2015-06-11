@@ -66,7 +66,15 @@ module.exports = generators.Base.extend({
       // TODO: expose other properties as options as well
       this.cookiecutter = {
         project_name: this.project_name,
-
+        repo_name: this.project_name,
+        author_name: 'author_name',
+        email: 'author_email',
+        description: 'project_description',
+        domain_name: 'project_domain',
+        version: '0.1.0',
+        timezone: 'UTC',
+        now: '2015/01/01',
+        year: '2015'
       }
       // copy the Django project
       this.log('Generating project ' + this.project_name);

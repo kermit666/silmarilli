@@ -110,6 +110,7 @@ For when it should be updated, Cookiecutter-django is included from
 TODO
 ----
 
+- Cookiecutter-django as subtree or submodule (probably submodule to KIS...)
 - set other cookiecutter-django settings as options (author_name etc.)
 - properly prompt the subgenerator
   http://stackoverflow.com/questions/28520937/
