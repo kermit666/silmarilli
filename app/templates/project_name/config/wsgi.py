@@ -16,9 +16,7 @@ framework.
 import os
 
 from django.core.wsgi import get_wsgi_application
-{% if cookiecutter.use_whitenoise == 'y' -%}
 from whitenoise.django import DjangoWhiteNoise
-{%- endif %}
 
 # We defer to a DJANGO_SETTINGS_MODULE already in the environment. This breaks
 # if running multiple sites in the same mod_wsgi process. To fix this, use
@@ -31,11 +29,9 @@ os.environ.setdefault("DJANGO_SETTINGS_MODULE", "config.settings.production")
 # setting points here.
 application = get_wsgi_application()
 
-{% if cookiecutter.use_whitenoise == 'y' -%}
 # Use Whitenoise to serve static files
 # See: https://whitenoise.readthedocs.org/
 application = DjangoWhiteNoise(application)
-{%- endif %}
 
 # Apply WSGI middleware here.
 # from helloworld.wsgi import HelloWorldApplication

@@ -110,6 +110,7 @@ For when it should be updated, Cookiecutter-django is included from
 TODO
 ----
 
+- use something more simliar to Jinja to render {% if %} tags in Cookiecutter
 - Cookiecutter-django as subtree or submodule (probably submodule to KIS...)
 - set other cookiecutter-django settings as options (author_name etc.)
 - properly prompt the subgenerator
