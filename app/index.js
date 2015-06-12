@@ -99,8 +99,15 @@ module.exports = generators.Base.extend({
         this.templatePath('project_name/project_name/templates'),
         this.destinationPath(this.project_name + '/templates')
       );
-      // TODO: copy docs/ and requirements/
-
+    },
+    silmarilli_root: function () {
+      // copy the silmarilli custom files to the root
+      this.fs.copyTpl(
+        // skip Gruntfile.js, since it uses <% templates, causing clashes
+        this.templatePath('root/{/**/*,*}'),
+        this.destinationPath(this.project_name + '/'),
+        this
+      );
     }
   },
 
