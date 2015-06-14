@@ -91,6 +91,16 @@ If you'd like to get to know Yeoman better and meet some of his friends,
 [Getting Started Guide](https://github.com/yeoman/yeoman/wiki/Getting-Started).
 
 
+Development
+-----------
+
+Install [Docker Compose](http://docs.docker.com/compose/install/) and afterwards
+you can get the development server up and running by simply running:
+
+    docker-compose up
+
+
+
 License
 -------
 
@@ -113,6 +123,7 @@ TODO
 
 - fill out django-compose.yml
 - use something more simliar to Jinja to render {% if %} tags in Cookiecutter
+   -> probably cookiecutter directly to handle {% raw %} tags
 - Cookiecutter-django as subtree or submodule (probably submodule to KIS...)
 - set other cookiecutter-django settings as options (author_name etc.)
 - properly prompt the subgenerator
