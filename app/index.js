@@ -9,6 +9,8 @@ module.exports = generators.Base.extend({
     generators.Base.apply(this, arguments);
 
     this.argument('project_name', { type: String, required: false });
+    this.argument('author_name', { type: String, required: false });
+    this.argument('author_email', { type: String, required: false });
 
     this.option('skip-angular', {desc: "don't generate the AngularJS app",
                                type: 'Boolean', defaults: false});
@@ -28,6 +30,23 @@ module.exports = generators.Base.extend({
 
     var prompts = [];
 
+    // TODO: move these to a separate module
+    if (!this.author_email){
+      prompts.splice(0, 0, {
+        type: 'input',
+        name: 'author_email',
+        message: "What is the author's e-mail address?",
+        default: 'author_email'
+      });
+    }
+    if (!this.author_name){
+      prompts.splice(0, 0, {
+        type: 'input',
+        name: 'author_name',
+        message: 'Who is the author of your project?',
+        default: 'author_name'
+      });
+    }
     if (!this.project_name){
       prompts.splice(0, 0, {
         type: 'input',
@@ -67,8 +86,8 @@ module.exports = generators.Base.extend({
       this.cookiecutter = {
         project_name: this.project_name,
         repo_name: this.project_name,
-        author_name: 'author_name',
-        email: 'author_email',
+        author_name: this.author_name,
+        email: this.author_email,
         description: 'project_description',
         domain_name: 'project_domain',
         version: '0.1.0',

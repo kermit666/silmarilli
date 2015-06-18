@@ -94,11 +94,18 @@ If you'd like to get to know Yeoman better and meet some of his friends,
 Development
 -----------
 
-Install [Docker Compose](http://docs.docker.com/compose/install/) and afterwards
-you can get the development server up and running by simply running:
+Install [Docker Compose](http://docs.docker.com/compose/install/).
+
+When necessary, run the migrations:
+
+    docker-compose run web ./manage.py migrate
+
+afterwards, you can get the development server up and running by simply running:
 
     docker-compose up
 
+Now, open your browser at <http://localhost:8000> or check the ip address with
+`boot2docker ip` if you're on OS X.
 
 
 License
