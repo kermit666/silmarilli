@@ -18,7 +18,7 @@ module.exports = generators.Base.extend({
         timezone: 'UTC',
         now: '2015/01/01',
         year: '2015'
-      }
+      };
       // copy the Django project
       this.log('Generating project ' + this.options.project_name);
       // - first without the project_name module

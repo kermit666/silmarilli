@@ -4,11 +4,11 @@
   "description": "Most brilliant gems forged into a powerful building tool.",
   "license": "GPLv3",
   "main": "app/index.js",
-  "repository": "kermit666/generator-silmarilli",
+  "repository": "metakermit/generator-silmarilli",
   "author": {
     "name": "Dražen Lučanin",
     "email": "kermit666 at gmail.com",
-    "url": "https://github.com/kermit666"
+    "url": "https://github.com/metakermit"
   },
   "engines": {
     "node": ">=0.10.0"

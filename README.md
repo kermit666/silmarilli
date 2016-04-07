@@ -1,4 +1,4 @@
-Silmarilli [![Build Status](https://secure.travis-ci.org/kermit666/silmarilli.png?branch=master)](https://travis-ci.org/kermit666/silmarilli)
+Silmarilli [![Build Status](https://secure.travis-ci.org/metakermit/generator-silmarilli.png?branch=master)](https://travis-ci.org/metakermit/generator-silmarilli)
 ==========
 
 > The Noldor also it was who first achieved the making of gems;
@@ -14,7 +14,8 @@ forged into a powerful building tool.
 The gems
 --------
 
-Silmarilli is packaged as a [Yeoman](http://yeoman.io) generator. It scaffolds
+Silmarilli is packaged as a [Yeoman](http://yeoman.io) generator,
+`generator-silmarilli`. It scaffolds
 your application consisting of a [Django](https://www.djangoproject.com/)
 REST API server connected to a PostgreSQL database and a
 [AngularJS](https://angularjs.org/) web app.

@@ -30,7 +30,7 @@ module.exports = generators.Base.extend({
 
     var prompts = [];
 
-    // TODO: move these to a separate module
+    // TODO: organise based on generator-node
     if (!this.author_email){
       prompts.splice(0, 0, {
         type: 'input',
