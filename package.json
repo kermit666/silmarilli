@@ -2,7 +2,7 @@
   "name": "generator-silmarilli",
   "version": "0.1.3",
   "description": "Most brilliant gems forged into a powerful building tool.",
-  "license": "GPLv3",
+  "license": "GPL-3.0",
   "main": "app/index.js",
   "repository": "metakermit/generator-silmarilli",
   "author": {
