@@ -9,9 +9,9 @@ module.exports = generators.Base.extend({
     generators.Base.apply(this, arguments);
 
     this.option('skip-django', {desc: "don't generate the Django REST backend",
-                               type: 'Boolean', defaults: false});
+                                type: 'Boolean', defaults: false});
     this.option('skip-angular', {desc: "don't generate the AngularJS app",
-                               type: 'Boolean', defaults: false});
+                                type: 'Boolean', defaults: false});
   },
 
   initializing: function () {

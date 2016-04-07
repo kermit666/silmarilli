@@ -2,36 +2,56 @@
   "name": "generator-silmarilli",
   "version": "0.1.4",
   "description": "Most brilliant gems forged into a powerful building tool.",
-  "license": "GPL-3.0",
-  "main": "app/index.js",
-  "repository": "metakermit/generator-silmarilli",
+  "homepage": "https://github.com/metakermit/generator-silmarilli",
   "author": {
     "name": "Dražen Lučanin",
-    "email": "kermit666 at gmail.com",
+    "email": "kermit666@gmail.com",
     "url": "https://github.com/metakermit"
   },
+  "files": [
+    "generators"
+  ],
+  "main": "app/index.js",
+  "keywords": [
+    "yeoman-generator"
+  ],
+  "license": "GPL-3.0",
+  "repository": "metakermit/generator-silmarilli",
   "engines": {
     "node": ">=0.10.0"
   },
   "scripts": {
-    "test": "mocha"
+    "test": "gulp",
+    "prepublish": "gulp prepublish"
   },
-  "files": [
-    "app"
-  ],
-  "keywords": [
-    "yeoman-generator"
-  ],
   "dependencies": {
     "chalk": "^1.0.0",
     "generator-angular": "^0.11.1",
     "generator-django-rest": "^0.2.1",
-    "generator-karma": "^0.9.0",
-    "yeoman-generator": "^0.18.9",
-    "yo": "^1.4.6",
+    "generator-gulp-angular": "^1.1.0",
+    "yeoman-generator": "^0.22.0",
     "yosay": "^1.0.2"
   },
   "devDependencies": {
-    "mocha": "*"
+    "mocha": "*",
+    "yeoman-assert": "^2.0.0",
+    "yeoman-test": "^1.0.0",
+    "eslint": "^2.1.0",
+    "eslint-config-xo-space": "^0.10.0",
+    "gulp": "^3.9.0",
+    "gulp-eslint": "^2.0.0",
+    "gulp-exclude-gitignore": "^1.0.0",
+    "gulp-istanbul": "^0.10.3",
+    "gulp-mocha": "^2.0.0",
+    "gulp-plumber": "^1.0.0",
+    "gulp-nsp": "^2.1.0",
+    "gulp-line-ending-corrector": "^1.0.1",
+    "gulp-coveralls": "^0.1.0"
+  },
+  "eslintConfig": {
+    "extends": "xo-space",
+    "env": {
+      "mocha": true
+    }
   }
 }

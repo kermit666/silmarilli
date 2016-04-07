@@ -31,6 +31,10 @@ How is this possible? Through the magic of
 [copying files](https://github.com/sboudrias/mem-fs-editor)
 based on [template rendering](https://lodash.com/docs#template)
 and [glob expressions](https://github.com/isaacs/node-glob).
+A good example of composability is
+[generator-generator](https://github.com/yeoman/generator-generator/blob/master/app/index.js)
+being composed of
+[generator-node](https://github.com/yeoman/generator-node).
 
 Getting Started
 ---------------
