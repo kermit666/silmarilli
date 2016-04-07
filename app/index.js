@@ -8,10 +8,8 @@ module.exports = generators.Base.extend({
   constructor: function () {
     generators.Base.apply(this, arguments);
 
-    this.argument('project_name', { type: String, required: false });
-    this.argument('author_name', { type: String, required: false });
-    this.argument('author_email', { type: String, required: false });
-
+    this.option('skip-django', {desc: "don't generate the Django REST backend",
+                               type: 'Boolean', defaults: false});
     this.option('skip-angular', {desc: "don't generate the AngularJS app",
                                type: 'Boolean', defaults: false});
   },
@@ -25,40 +23,26 @@ module.exports = generators.Base.extend({
 
     // Have Yeoman greet the user.
     this.log(yosay(
+      // (Quenya pl. Silmarilli)
       'Alatulya! Let us plant the ' + chalk.red('Silmarils') + '...'
     ));
 
     var prompts = [];
 
-    // TODO: organise based on generator-node
-    if (!this.author_email){
-      prompts.splice(0, 0, {
-        type: 'input',
-        name: 'author_email',
-        message: "What is the author's e-mail address?",
-        default: 'author_email'
-      });
-    }
-    if (!this.author_name){
-      prompts.splice(0, 0, {
-        type: 'input',
-        name: 'author_name',
-        message: 'Who is the author of your project?',
-        default: 'author_name'
-      });
-    }
-    if (!this.project_name){
-      prompts.splice(0, 0, {
-        type: 'input',
-        name: 'project_name',
-        message: 'What is the name of your project?',
-        default: 'project_name'
-      });
-    }
-
     this.prompt(prompts, function (props) {
-      if (props.project_name){
-        this.project_name = props.project_name;
+
+      // create the Django REST backend
+      if (!this.options['skip-django']){
+        this.log('Setting up Django REST.');
+        this.composeWith('django:app', {
+          skipInstall: this.options['skip-install'],
+          skipMessage: false
+        }, {
+          local: require.resolve('generator-django-rest')
+        }).on('end', function(){ done(); });
+      } else {
+        this.log('Skipping Django REST as requested.');
+        done();
       }
 
       // create the Angular app
@@ -79,30 +63,9 @@ module.exports = generators.Base.extend({
     }.bind(this));
   },
 
-  writing: {
-    silmarilli_root: function () {
-      // copy the silmarilli custom files to the root
-      this.fs.copyTpl(
-        // skip Gruntfile.js, since it uses <% templates, causing clashes
-        this.templatePath('root/{/**/*,*}'),
-        this.destinationPath(this.project_name + '/'),
-        this
-      );
-    }
-  },
+  writing: {},
 
   default: function () {
-    //if (this.options.django)
-    this.log('index ', this.project_name);
-    this.composeWith('silmarilli:django', {
-      options: {
-        project_name: this.project_name,
-        author_name: this.author_name,
-        author_email: this.author_email
-      }
-    }, {
-      local: require.resolve('../generators/django')
-    });
   },
 
   install: function () {
