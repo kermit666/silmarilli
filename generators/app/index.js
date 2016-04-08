@@ -53,7 +53,7 @@ module.exports = yeoman.Base.extend({
       this.composeWith('django:app', {
         args: this.args,
         options: {
-          skipInstall: this.options.skipInstall,
+          skipInstall: this.options.skipInstall
         }
       }, {
         local: require.resolve('generator-django-rest/generators/app')
