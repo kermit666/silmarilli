@@ -7,7 +7,6 @@ module.exports = yeoman.Base.extend({
 
   constructor: function () {
     yeoman.Base.apply(this, arguments);
-
     this.option('skip-install', {desc: "skip npm install and bower install",
                                  type: 'Boolean', defaults: false});
     this.option('skip-django', {desc: "don't generate the Django REST backend",
@@ -29,12 +28,6 @@ module.exports = yeoman.Base.extend({
     ));
 
     var prompts = [];
-    // [{
-    //   type: 'confirm',
-    //   name: 'someAnswer',
-    //   message: 'Would you like to enable this option?',
-    //   default: true
-    // }];
 
     this.prompt(prompts, function (props) {
       this.props = props;
@@ -51,6 +44,19 @@ module.exports = yeoman.Base.extend({
         }
       }, {
         local: require.resolve('generator-gulp-angular/generators/app')
+      });
+    }
+
+    // this.log('this.options', [ this.options ]);
+    // this.log('this.args', this.args);
+    if (!this.options['skip-django']){
+      this.composeWith('django:app', {
+        args: this.args,
+        options: {
+          skipInstall: this.options.skipInstall,
+        }
+      }, {
+        local: require.resolve('generator-django-rest/generators/app')
       });
     }
   },

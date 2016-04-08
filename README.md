@@ -10,21 +10,22 @@ Silmarilli [![Build Status](https://secure.travis-ci.org/metakermit/generator-si
 This is a collection of the most brilliant gems out there,
 forged into a powerful building tool.
 
+**Warning: still work in progress and not ready for usage yet!**
+
 
 The gems
 --------
 
-Silmarilli is packaged as a [Yeoman](http://yeoman.io) generator,
-`generator-silmarilli`. It scaffolds
+Silmarilli is packaged as a [Yeoman](http://yeoman.io) generator –
+generator-silmarilli. It scaffolds
 your application consisting of a [Django](https://www.djangoproject.com/)
-REST API server connected to a PostgreSQL database and a
+REST API server connected to a PostgreSQL database and an
 [AngularJS](https://angularjs.org/) web app.
 
 The following gems are included in Silmarilli:
 
-- [cookiecutter-django](https://github.com/pydanny/cookiecutter-django)
-  ([@pydanny](https://github.com/pydanny))
-- [generator-angular](https://github.com/yeoman/generator-angular)
+- [generator-django-rest](https://github.com/metakermit/generator-django-rest)
+- [generator-gulp-angular](https://github.com/Swiip/generator-gulp-angular)
 
 How is this possible? Through the magic of
 [composability](yeoman.io/authoring/composability.html),
@@ -39,65 +40,63 @@ being composed of
 Getting Started
 ---------------
 
-### What is Yeoman?
-
-Trick question. It's not a thing. It's this guy:
-
-![](http://i.imgur.com/JHaAlBJ.png)
-
-Basically, he wears a top hat, lives in your computer, and waits for you to tell
-him what kind of application you wish to create.
-
-Not every new computer comes with a Yeoman pre-installed. He lives in the
+To begin, your computer first needs [node.js](https://nodejs.org).
+Once you have that, we need Yeoman pre-installed. Yeoman lives in the
 [npm](https://npmjs.org) package repository. You only have to ask for him once,
-then he packs up and moves into your hard drive. *Make sure you clean up, he
-likes new and shiny things.*
+then he packs up and moves into your hard drive.
 
 ```bash
 npm install -g yo
 ```
 
-### Yeoman Generators
-
-Yeoman travels light. He didn't pack any generators when he moved in. You can
-think of a generator like a plug-in. You get to choose what type of application
-you wish to create, such as a Backbone application or even a Chrome extension.
-
-To install generator-silmarilli from
-[npm](https://www.npmjs.com/package/generator-silmarilli), run:
+Then, we need the Silmarilli generator, i.e. plug-in. You install
+generator-silmarilli from
+[npm](https://www.npmjs.com/package/generator-silmarilli).
 
 ```bash
 npm install -g generator-silmarilli
 ```
 
-Finally, initiate the generator:
+Finally, for every new project you would initiate the generator
+in an empty folder.
 
 ```bash
+mkdir magic-project
+cd magic-project
 yo silmarilli
 ```
 
-You can optionally pass in the project name as an argument (you'll be asked for
-it otherwise).
+You will be prompted for some questions. You can optionally pass in the project
+name as an argument (you'll be asked for it otherwise).
 
 ```bash
-yo silmarilli awesome_thingy
+yo silmarilli magic-project
 ```
 
 If you want to skip generating the Angular code, pass the `--skip-angular` flag.
 
-### Getting To Know Yeoman
+```bash
+yo silmarilli awesome-project --skip-angular
+```
 
-Yeoman has a heart of gold. He's a person with feelings and opinions, but he's
-very easy to work with. If you think he's too opinionated, he can be easily
-convinced.
+See all of the available options by running the help flag.
 
-If you'd like to get to know Yeoman better and meet some of his friends,
-[Grunt](http://gruntjs.com) and [Bower](http://bower.io), check out the complete
-[Getting Started Guide](https://github.com/yeoman/yeoman/wiki/Getting-Started).
+```bash
+yo silmarilli --help
+```
 
 
 Development
 -----------
+
+### Locally
+
+If you didn't pass `--skip-install`, Yeoman will run `npm install`
+and `bower install` for you. After this, start the development environment using
+
+    gulp serve
+
+### Using Docker
 
 Install [Docker Compose](http://docs.docker.com/compose/install/).
 
@@ -117,17 +116,6 @@ License
 -------
 
 Original code GPLv3, for the included components see LICENSE.md.
-
-
-Hacking
--------
-
-For when it should be updated, Cookiecutter-django is included from
-[kermit's fork](https://github.com/kermit666/cookiecutter-django/tree/kermit)
-as:
-
-    cd app/templates
-    cookiecutter --no-input -c kermit gh:kermit666/cookiecutter-django
 
 
 TODO
