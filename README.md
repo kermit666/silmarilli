@@ -12,6 +12,12 @@ forged into a powerful building tool.
 
 **Warning: still work in progress and not ready for usage yet!**
 
+**Update: as create-react-app stepped away from Yeoman generators, I actually
+included it with my
+[Django REST generator](https://github.com/metakermit/generator-django-rest),
+which now supersedes this project.
+Hence, Simlarilli is archived for the time being...**
+
 
 The gems
 --------
